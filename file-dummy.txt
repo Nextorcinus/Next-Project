@@ -4,4 +4,6 @@ Kami telah mengumpulkan dan mengkurasi sejumlah snippet code berkualitas dari su
 
 Di repository ini, Anda akan menemukan snippet code untuk berbagai topik, seperti struktur data, algoritma, manipulasi string, operasi file, penggunaan API, pengaturan lingkungan pengembangan, dan banyak lagi. Kami juga menyertakan beberapa contoh proyek kecil yang memperlihatkan integrasi antara beberapa snippet code.
 
-Silahkan jelajahi repository ini dan temukan kode yang berguna bagi Anda. Jangan ragu untuk berkontribusi dengan snippet code baru yang menarik atau memberikan saran untuk meningkatkan koleksi kami. Kami berharap repository "Awesome Code Snippets" dapat menjadi sumber inspirasi dan bahan referensi bagi komunitas pengembang perangkat lunak.
+mungkin bakal berguna untuk beberapa perangkat.
+
+
