@@ -1,1 +1,3 @@
-test aja nih
+U = Unstracked
+M = Modified
+A = Added
