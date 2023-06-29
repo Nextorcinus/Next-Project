@@ -5,13 +5,17 @@ main {
   justify-content: center;
 }
 
+.border {
+  margin-right: 50px;
+}
+
 a.js-tilt {
-  width: 300px;
-  height: 200px;
+  width: 288px;
+  height: 349px;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  border: 10px solid #333;
+
   transform-style: preserve-3d;
 }
 a.js-tilt > img {
@@ -20,22 +24,21 @@ a.js-tilt > img {
   object-fit: cover;
   transition: all 0.2s ease;
 }
-a.js-tilt .title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.title {
+  position: relative;
+  display: block;
   margin: 0;
-  color: white;
-  font-weight: 900;
-  font-family: "Lato";
+  color: black;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
   text-transform: uppercase;
-  text-shadow: 0 0 2px #000;
-  transform: translate(-50%, -50%);
+  top: 10px;
   transition: all 0.2s ease;
 }
 a.js-tilt:hover > img {
   transform: translateZ(-40px);
 }
-a.js-tilt:hover .title {
-  transform: translate(-50%, -50%) translateZ(70px);
+
+a.js-tilt:hover {
+  border: 10px solid #333;
 }
