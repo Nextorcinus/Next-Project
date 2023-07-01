@@ -115,6 +115,109 @@ section[data-bgcolor] {
   color: black;
 }
 
+.menuMain.open li:nth-child(1) {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.menuMain.open li:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.menuMain.open li:nth-child(3) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.menuMain.open li:nth-child(4) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.menuMain.open li:nth-child(5) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.menuMain.open li:nth-child(6) {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.menuMain.open li:nth-child(7) {
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+.menuMain.open li:nth-child(8) {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+.menuMain.open li:nth-child(9) {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+.menuMain.open li:nth-child(10) {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.menuMain.open li {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+.menuMain ul:hover a {
+  opacity: 0.5;
+}
+.menuMain ul a {
+  -webkit-transform: translateZ(0);
+  transition: opacity 0.3s ease-in-out;
+}
+.menuMain ul a:hover {
+  opacity: 1;
+}
+.menuMain .main-nav {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menuMain .main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menuMain .main-nav a {
+  color: #ffffff;
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.menuMain .main-nav a:first {
+  padding-top: 0;
+}
+.menuMain .menu-footer {
+  padding: 2rem;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.menuMain .menu-footer ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menuMain .menu-footer ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+.menuMain .menu-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .close-menu {
   position: fixed;
   background-color: black;
@@ -133,5 +236,5 @@ section[data-bgcolor] {
 
 .close-menu.active {
   display: block;
-  z-index: 150;
+  z-index: 100;
 }
