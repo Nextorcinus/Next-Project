@@ -1,3 +1,4 @@
+// change side nav color each section scroll
 window.addEventListener("scroll", function () {
   const header = document.querySelector(".menuNav");
   const sections = document.querySelectorAll("section");
