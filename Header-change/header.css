@@ -242,6 +242,7 @@ section[data-bgcolor] {
 .close-menu.active {
   display: block;
   z-index: 100;
+  transition: background-color 0.5s ease;
 }
 
 .toggle-menu {
