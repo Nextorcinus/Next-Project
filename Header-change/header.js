@@ -55,8 +55,9 @@ document.addEventListener("click", function (activate) {
     closeBtn.classList.remove("active");
     toggleMenu.classList.remove("active");
   }
+
+  // Remove "active" class from closeBtn
+  if (!toggleMenu.classList.contains("active")) {
+    closeBtn.classList.remove("active");
+  }
 });
-
-
-document.addEventListener("click", function (activate) {
-  if (
