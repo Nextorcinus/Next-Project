@@ -21,14 +21,15 @@ window.addEventListener("scroll", function () {
 
 // Menu - button click to show menu side nav
 document.addEventListener("DOMContentLoaded", function () {
-  const searchForm = document.querySelector(".menuNav");
-  const searchBox = document.querySelector(".menuMain");
+  const menuBar = document.querySelector(".menuMain");
   const closeBtn = document.getElementById("close-btn");
+  const toggleMenu = document.querySelector(".toggle-menu");
 
-  document.getElementById("search-btn").addEventListener("click", function () {
-    searchBox.classList.toggle("open");
-    searchBox.focus();
+  document.getElementById("menu-btn").addEventListener("click", function () {
+    menuBar.classList.toggle("open");
+    menuBar.focus();
     closeBtn.classList.add("active");
+    toggleMenu.classList.toggle("active");
   });
 });
 
@@ -40,16 +41,22 @@ document.addEventListener("mousemove", function (event) {
 });
 
 // Menu - klik diluar elemen menu side nav akan ketutup
-const searchBar = document.querySelector("#search-btn");
-const searchForm = document.querySelector(".menuMain");
+const menuBtn = document.querySelector("#menu-btn");
+const menuBar = document.querySelector(".menuMain");
 const closeBtn = document.getElementById("close-btn");
+const toggleMenu = document.querySelector(".toggle-menu");
 
 document.addEventListener("click", function (activate) {
   if (
-    !searchBar.contains(activate.target) &&
-    !searchForm.contains(activate.target)
+    !menuBtn.contains(activate.target) &&
+    !menuBar.contains(activate.target)
   ) {
-    searchForm.classList.remove("open");
+    menuBar.classList.remove("open");
     closeBtn.classList.remove("active");
+    toggleMenu.classList.remove("active");
   }
 });
+
+
+document.addEventListener("click", function (activate) {
+  if (
