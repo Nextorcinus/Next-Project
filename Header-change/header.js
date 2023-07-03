@@ -1,23 +1,24 @@
 // change side nav color each section scroll
-window.addEventListener("scroll", function () {
-  const header = document.querySelector(".menuNav");
-  const sections = document.querySelectorAll("section");
+//
+// window.addEventListener("scroll", function () {
+//   const header = document.querySelector(".menuNav");
+//   const sections = document.querySelectorAll("section");
 
-  sections.forEach(function (section) {
-    const sectionRect = section.getBoundingClientRect();
+//   sections.forEach(function (section) {
+//     const sectionRect = section.getBoundingClientRect();
 
-    if (
-      sectionRect.top < header.offsetHeight &&
-      sectionRect.bottom > header.offsetHeight
-    ) {
-      const bgColor = section.getAttribute("data-bgcolor");
-      header.style.backgroundColor = bgColor;
-      section.classList.add("active");
-    } else {
-      section.classList.remove("active");
-    }
-  });
-});
+//     if (
+//       sectionRect.top < header.offsetHeight &&
+//       sectionRect.bottom > header.offsetHeight
+//     ) {
+//       const bgColor = section.getAttribute("data-bgcolor");
+//       header.style.backgroundColor = bgColor;
+//       section.classList.add("active");
+//     } else {
+//       section.classList.remove("active");
+//     }
+//   });
+// });
 
 // Menu - button click to show menu side nav
 document.addEventListener("DOMContentLoaded", function () {
