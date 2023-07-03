@@ -25,12 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuBar = document.querySelector(".menuMain");
   const closeBtn = document.getElementById("close-btn");
   const toggleMenu = document.querySelector(".toggle-menu");
+  const bgToggle = document.querySelector(".menuNav");
 
   document.getElementById("menu-btn").addEventListener("click", function () {
     menuBar.classList.toggle("open");
     menuBar.focus();
     closeBtn.classList.add("active");
     toggleMenu.classList.toggle("active");
+    bgToggle.classList.toggle("active");
   });
 });
 
@@ -46,6 +48,7 @@ const menuBtn = document.querySelector("#menu-btn");
 const menuBar = document.querySelector(".menuMain");
 const closeBtn = document.getElementById("close-btn");
 const toggleMenu = document.querySelector(".toggle-menu");
+const bgToggle = document.querySelector(".menuNav");
 
 document.addEventListener("click", function (activate) {
   if (
@@ -60,5 +63,6 @@ document.addEventListener("click", function (activate) {
   // Remove "active" class from closeBtn
   if (!toggleMenu.classList.contains("active")) {
     closeBtn.classList.remove("active");
+    bgToggle.classList.remove("active");
   }
 });
