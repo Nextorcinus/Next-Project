@@ -1,101 +1,8 @@
-/* body {
-  height: 100vh;
-  background: #fff;
-}
-
-.slider-thumb::before {
-  position: absolute;
-  content: "";
-  right: -10%;
-  top: 10%;
-  width: 450px;
-  height: 450px;
-  background: #ffc629;
-  border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-  will-change: border-radius, transform, opacity;
-  animation: sliderShape 5s linear infinite;
-  display: block;
-  z-index: -1;
-  -webkit-animation: sliderShape 5s linear infinite;
-  filter: blur(10px);
-}
-@keyframes sliderShape {
-  0%,
-  100% {
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  34% {
-    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-    transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-  }
-  50% {
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  67% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-    transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
-  }
-}
-
-.slider-thumb2::before {
-  position: absolute;
-  content: "";
-  left: -10%;
-  top: 90%;
-  width: 450px;
-  height: 450px;
-  background: #ff8329;
-  border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-  will-change: border-radius, transform, opacity;
-  animation: sliderShape 5s linear infinite;
-  display: block;
-  z-index: -1;
-  -webkit-animation: sliderShape2 5s linear infinite;
-  filter: blur(10px);
-}
-@keyframes sliderShape2 {
-  0%,
-  100% {
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  34% {
-    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-    transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-  }
-  50% {
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  67% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-    transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
-  }
-}
-
-div p {
-  height: 9000px;
-} */
-
-/* Smooth scroll stuff */
 html {
   overflow-x: hidden;
   overflow-y: scroll;
 }
-.js-cont {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.js-scroll {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 100%;
-  will-change: transform;
-}
+
 /* Content stuff */
 body {
   position: relative;
@@ -104,22 +11,12 @@ body {
   overflow: hidden;
   width: 100%;
   height: 2000px;
-  color: #fff;
+  color: #000;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   background: #090446;
 }
-body:after {
-  content: "";
-  background: #fff;
-  /* background: linear-gradient(to bottom, #090446 0%, #5f0d18 100%); */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  z-index: -1;
-}
+
 .full-screen {
   height: 100vh;
   display: flex;
@@ -138,7 +35,7 @@ body:after {
   margin: 0 auto 300px;
 }
 .content a {
-  color: #fff;
+  color: #000;
 }
 .content span {
   font-weight: bold;
@@ -148,7 +45,7 @@ body:after {
   position: absolute;
   content: "";
   left: 90%;
-  top: 10%;
+  top: 30%;
   width: 450px;
   height: 450px;
   background: #ffc629;
@@ -158,7 +55,7 @@ body:after {
   display: block;
   z-index: -1;
   -webkit-animation: sliderShape 5s linear infinite;
-  filter: blur(40px);
+  filter: blur(100px);
 }
 @keyframes sliderShape {
   0%,
@@ -183,7 +80,7 @@ body:after {
   position: absolute;
   content: "";
   left: -10%;
-  top: 20%;
+  top: 50%;
   width: 450px;
   height: 450px;
   background: #ff8329;
@@ -192,34 +89,19 @@ body:after {
   animation: sliderShape 5s linear infinite;
   display: block;
   z-index: -1;
-  -webkit-animation: sliderShape2 5s linear infinite;
-  filter: blur(40px);
-}
-@keyframes sliderShape2 {
-  0%,
-  100% {
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  34% {
-    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-    transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-  }
-  50% {
-    transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-  }
-  67% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-    transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
-  }
+  -webkit-animation: sliderShape 5s linear infinite;
+  filter: blur(90px);
 }
 
 .slideshow {
+  position: relative;
+  display: block;
   background-color: #000;
+  z-index: 5;
 }
 .slideshow > img {
   width: 100%;
-  height: fit-content;
+  height: 700px;
   opacity: 0.5;
   aspect-ratio: 16/9;
   object-fit: contain;
@@ -227,5 +109,5 @@ body:after {
 
 .jsbody {
   height: 2200px;
-  background-color: #ff8329;
+  background-color: #fff;
 }
