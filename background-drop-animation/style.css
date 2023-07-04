@@ -147,7 +147,7 @@ body:after {
 .slider-thumb::before {
   position: absolute;
   content: "";
-  left: 50%;
+  left: 90%;
   top: 10%;
   width: 450px;
   height: 450px;
@@ -158,7 +158,7 @@ body:after {
   display: block;
   z-index: -1;
   -webkit-animation: sliderShape 5s linear infinite;
-  filter: blur(180px);
+  filter: blur(40px);
 }
 @keyframes sliderShape {
   0%,
@@ -182,7 +182,7 @@ body:after {
 .slider-thumb2::before {
   position: absolute;
   content: "";
-  left: 10%;
+  left: -10%;
   top: 20%;
   width: 450px;
   height: 450px;
@@ -193,7 +193,7 @@ body:after {
   display: block;
   z-index: -1;
   -webkit-animation: sliderShape2 5s linear infinite;
-  filter: blur(150px);
+  filter: blur(40px);
 }
 @keyframes sliderShape2 {
   0%,
@@ -212,4 +212,20 @@ body:after {
     border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
     transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
   }
+}
+
+.slideshow {
+  background-color: #000;
+}
+.slideshow > img {
+  width: 100%;
+  height: fit-content;
+  opacity: 0.5;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+
+.jsbody {
+  height: 2200px;
+  background-color: #ff8329;
 }
