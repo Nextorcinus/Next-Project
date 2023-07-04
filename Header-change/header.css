@@ -67,8 +67,8 @@ section.active:before {
   display: flex;
   left: 0;
   top: 0;
-  border-right: 1px solid rgba(238, 238, 238, 0.2);
-  background: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgb(195 195 195 / 30%);
+  background: rgb(153 153 153 / 10%);
   backdrop-filter: blur(10px);
   height: 100vh;
   width: 66px;
@@ -82,6 +82,7 @@ section.active:before {
 }
 .menuNav.active {
   background-color: #ffc629;
+  border-right: 1px solid rgb(235, 182, 35);
 }
 
 .menuMain {
@@ -388,6 +389,10 @@ button.close-menu {
   text-decoration: underline;
 }
 
+.address p {
+  font-family: "TR Grotesk", sans-serif;
+  font-size: 16px;
+}
 .address a {
   font-family: "TR Grotesk", sans-serif;
   font-size: 16px;
