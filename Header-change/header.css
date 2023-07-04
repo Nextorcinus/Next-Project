@@ -342,3 +342,16 @@ button.close-menu {
   -o-transform: scale(3);
   transform: scale(3);
 }
+
+.container .logo a .logomenu {
+  width: 200px;
+}
+
+.container .kolommenu a {
+  font-family: "TR Grotesk", sans-serif;
+  font-size: 16px;
+  color: #000;
+  line-height: 1.35em;
+  list-style: none;
+  display: inline-block;
+}
