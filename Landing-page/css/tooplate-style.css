@@ -403,12 +403,90 @@ footer {
 }
 
 /*---------------------------------------
+    RECTANGLE & MOVING TEXT          
+  -----------------------------------------*/
+
+.rectangle {
+  margin-top: -20px;
+  margin-bottom: -6px;
+}
+
+.marquee {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: inline-flex;
+  transform: rotate(-4deg);
+  align-items: center;
+  gap: 25px;
+  flex-shrink: 0;
+  margin-bottom: -30px;
+}
+
+.marquee .inner.transition {
+  transition: transform 6s cubic-bezier(0.23, 0.36, 0.28, 0.83); /* Transisi skew selama 0,5 detik dengan efek halus */
+}
+
+.marquee .inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  color: yellow;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+}
+.marquee .inner > * {
+  white-space: nowrap;
+  padding: 0 2rem;
+}
+
+.marquee .inner.skew-down {
+  transform: skewX(10deg); /* Skew ke bawah saat scroll ke bawah */
+}
+
+.marquee .inner.skew-up {
+  transform: skewX(-10deg); /* Skew ke atas saat scroll ke atas */
+}
+
+.marquee .inner li:hover {
+  color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+li {
+  list-style-type: none;
+  display: inline-flex;
+  color: #444;
+  text-align: center;
+  font-size: calc(2vw + 25px);
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 170%;
+  letter-spacing: 3px;
+  margin-right: 25px;
+}
+ul {
+  padding-inline-start: 0px;
+}
+
+/*---------------------------------------
       ABOUT              
   -----------------------------------------*/
+#about {
+  background-color: #252525;
+}
 
 #about .col-md-4 {
   margin: 0;
   padding: 0;
+}
+
+#about .container .section-title h1 {
+  color: white;
 }
 
 .team-thumb {
@@ -464,6 +542,9 @@ footer {
 
 .team-thumb img {
   width: 100%;
+  height: 410px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 /*---------------------------------------
