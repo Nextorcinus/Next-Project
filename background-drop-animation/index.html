@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Background drop animation</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -17,21 +22,20 @@
       />
     </div>
 
-    <div class="jsbody">
-      <div class="js-scroll">
-        <div class="gg">
-          <div class="slider-thumb"></div>
-          <div class="slider-thumb2"></div>
-          <p>test</p>
+    <section class="section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 offset-md-1">
+            <div class="box box-1"></div>
+          </div>
+          <div class="col-md-4 offset-md-2">
+            <div class="box box-2"></div>
+          </div>
         </div>
-        <div class="content">
-          <p>
-            Or just use this real good lib :
-            <a href="https://github.com/baptistebriel/smooth-scrolling"
-              >Smooth Scrolling</a
-            >
-          </p>
+      </div>
+    </section>
 
+<<<<<<< HEAD
           <p>
             Follow me on <a href="https://codepen.io/origine/">Codepen</a> or on
             <a href="https://twitter.com/thomAufresne">Twitter</a> for more
@@ -64,6 +68,80 @@
       </div>
     </div>
 
+=======
+    <div class="item">
+      <div class="title">Element One</div>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          labore obcaecati animi unde cupiditate tenetur laborum sequi saepe
+          veritatis enim sunt eius nisi voluptatum quae inventore impedit vero
+          distinctio accusantium at, deleniti in? Alias nisi deleniti qui
+          veritatis aliquam rem maxime aspernatur! Quas maxime quam nam magnam
+          nulla quisquam architecto! Obcaecati dicta voluptatem excepturi
+          consequuntur molestiae, maxime omnis ullam quisquam harum optio
+          accusantium iste suscipit neque, at voluptatibus aperiam quam.
+        </p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="title">Element Two</div>
+      <div class="content">
+        <p>
+          Libero possimus alias laudantium animi amet asperiores tempore facilis
+          dolores voluptates maxime sapiente nam et perspiciatis at ea dolorem
+          illum veniam voluptatibus quia natus, architecto maiores, porro rerum
+          numquam. Iusto itaque amet, obcaecati voluptatum rem blanditiis
+          reprehenderit quae dolores labore. Soluta consectetur alias laboriosam
+          voluptatum tenetur. Eveniet iusto, sint architecto officiis aliquid
+          ullam quibusdam facilis minima deserunt porro voluptate voluptatum
+          ducimus expedita molestias rerum hic maxime mollitia veniam nemo
+          dolor.
+        </p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="title">Element Three</div>
+      <div class="content">
+        <p>
+          Expedita omnis a, vero est distinctio voluptatibus quos quo, maiores
+          iusto sequi amet culpa ut inventore. Harum iusto provident ea nostrum
+          atque fugit culpa eaque dolores unde, recusandae cumque dolorem
+          accusantium sequi perspiciatis natus hic consectetur ipsa aliquid nemo
+          ullam facilis repellat incidunt. Ad a, nisi, maxime incidunt dolor
+          iure eos quod in recusandae sit iste nesciunt harum perspiciatis,
+          alias at veritatis iusto praesentium eum explicabo amet deleniti non.
+          Sapiente.
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="bookingwidgetBEwidget_WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4="
+    ></div>
+    <script
+      id="BEJSGROUP"
+      data-BEJSGroupFilePath="https://maxbe.staah.net/widget/BEwidget/mainwidgetbe.js"
+    ></script>
+    <script>
+      if (localStorage.getItem("BEJSGROUP") === null) {
+        var BEJSGroupFilePath_VARVN = "1.0.0.0";
+      } else {
+        var BEJSGroupFilePath_VARVN = localStorage.getItem("BEJSGROUP");
+      }
+      var displayViewIdsElement = document
+        .getElementById("BEJSGROUP")
+        .getAttribute("data-BEJSGroupFilePath");
+      document.getElementById("BEJSGROUP").src =
+        displayViewIdsElement + "?v=" + BEJSGroupFilePath_VARVN;
+      window.addEventListener("load", function () {
+        callGroupWidget("WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4=");
+      });
+    </script>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+>>>>>>> f1582f6346004e291432783f2a0f3def81e8622c
     <script src="script.js"></script>
   </body>
 </html>

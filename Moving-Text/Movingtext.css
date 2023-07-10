@@ -16,7 +16,8 @@
   margin-bottom: -22px;
 }
 
-.marquee {
+.marquee1,
+.marquee2 {
   position: relative;
   top: 0;
   left: 0;
@@ -30,31 +31,37 @@
   flex-shrink: 0;
 }
 
-.marquee .inner.transition {
+.marquee1 .inner1.transition,
+.marquee2 .inner2.transition {
   transition: transform 6s cubic-bezier(0.23, 0.36, 0.28, 0.83); /* Transisi skew selama 0,5 detik dengan efek halus */
 }
 
-.marquee .inner {
+.marquee1 .inner1,
+.marquee2 .inner2 {
   position: relative;
   width: 100%;
   display: flex;
   color: yellow;
   transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
 }
-.marquee .inner > * {
+.marquee1 .inner1 > *,
+.marquee2 .inner2 > * {
   white-space: nowrap;
   padding: 0 1rem;
 }
 
-.marquee .inner.skew-down {
+.marquee1 .inner1.skew-down,
+.marquee2 .inner2.skew-down {
   transform: skewX(10deg); /* Skew ke bawah saat scroll ke bawah */
 }
 
-.marquee .inner.skew-up {
+.marquee1 .inner1.skew-up,
+.marquee2 .inner2.skew-up {
   transform: skewX(-10deg); /* Skew ke atas saat scroll ke atas */
 }
 
-li {
+.marquee1 li,
+.marquee2 li {
   list-style-type: none;
   display: inline-flex;
   color: #444;
