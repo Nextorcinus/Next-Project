@@ -37,32 +37,32 @@
             <a href="https://twitter.com/thomAufresne">Twitter</a> for more
             front-end related stuff.
           </p>
+
+          <div
+            id="bookingwidgetBEwidget_WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4="
+          ></div>
+          <script
+            id="BEJSGROUP"
+            data-BEJSGroupFilePath="https://maxbe.staah.net/widget/BEwidget/mainwidgetbe.js"
+          ></script>
+          <script>
+            if (localStorage.getItem("BEJSGROUP") === null) {
+              var BEJSGroupFilePath_VARVN = "1.0.0.0";
+            } else {
+              var BEJSGroupFilePath_VARVN = localStorage.getItem("BEJSGROUP");
+            }
+            var displayViewIdsElement = document
+              .getElementById("BEJSGROUP")
+              .getAttribute("data-BEJSGroupFilePath");
+            document.getElementById("BEJSGROUP").src =
+              displayViewIdsElement + "?v=" + BEJSGroupFilePath_VARVN;
+            window.addEventListener("load", function () {
+              callGroupWidget("WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4=");
+            });
+          </script>
         </div>
       </div>
     </div>
-
-    <div
-      id="bookingwidgetBEwidget_WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4="
-    ></div>
-    <script
-      id="BEJSGROUP"
-      data-BEJSGroupFilePath="https://maxbe.staah.net/widget/BEwidget/mainwidgetbe.js"
-    ></script>
-    <script>
-      if (localStorage.getItem("BEJSGROUP") === null) {
-        var BEJSGroupFilePath_VARVN = "1.0.0.0";
-      } else {
-        var BEJSGroupFilePath_VARVN = localStorage.getItem("BEJSGROUP");
-      }
-      var displayViewIdsElement = document
-        .getElementById("BEJSGROUP")
-        .getAttribute("data-BEJSGroupFilePath");
-      document.getElementById("BEJSGROUP").src =
-        displayViewIdsElement + "?v=" + BEJSGroupFilePath_VARVN;
-      window.addEventListener("load", function () {
-        callGroupWidget("WtjwknIPvBWAsPXEG8fBFdOovvW1AN9CaPKFVXoJSY4=");
-      });
-    </script>
 
     <script src="script.js"></script>
   </body>
