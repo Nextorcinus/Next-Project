@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
+.image {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  padding: 20px;
+}
