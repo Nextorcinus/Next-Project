@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(".carrousel").slick({
-    dots: true,
+    dots: false,
     autoplay: true,
     infinite: true,
     speed: 500,

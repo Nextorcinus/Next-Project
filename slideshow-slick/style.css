@@ -14,7 +14,7 @@ body {
 }
 
 .carrousel {
-  width: 90vw;
+  width: 100vw;
   max-width: 1440px;
   margin: auto;
 }
@@ -162,16 +162,14 @@ body {
 
 .slick-prev {
   left: 20px;
-  background: url(https://www.flaticon.com/free-icon/left-arrow_271220?term=arrow&page=1&position=28&origin=tag&related_id=271220)
-    no-repeat;
+  background: url("img/icons8-arrow-kiri.png") no-repeat;
   background-size: contain;
   filter: invert(100%);
 }
 
 .slick-next {
   right: 20px;
-  background: url(https://img.icons8.com/ios-filled/50/circled-left-2.png)
-    no-repeat;
+  background: url("img/icons8-arrow-kanan.png") no-repeat;
   background-size: contain;
   filter: invert(100%);
 }
