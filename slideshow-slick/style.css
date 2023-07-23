@@ -23,10 +23,6 @@ body {
   height: auto;
 }
 
-.carousel-item img {
-  user-drag: none;
-}
-
 .carousel-prev,
 .carousel-next {
   position: absolute;
