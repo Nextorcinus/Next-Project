@@ -1,175 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap");
 body {
   margin: 0;
-  background: #191919;
+  padding: 0;
 }
 
-.container {
-  height: 100vh;
-}
-@media screen and (min-width: 1026px) {
-  .container {
-    padding-top: 5rem;
-  }
-}
-
-.carrousel {
-  width: 100vw;
-  max-width: 1440px;
-  margin: auto;
-}
-@media screen and (max-width: 1025px) {
-  .carrousel {
-    max-width: 90vw;
-  }
-}
-.carrousel__link {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.carousel-container {
   position: relative;
   overflow: hidden;
 }
-@media screen and (max-width: 1025px) {
-  .carrousel__link {
-    max-width: 100vw;
-    max-height: 50vh;
-  }
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
 }
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  .carrousel__link {
-    max-height: 100vh;
-  }
+
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
 }
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .carrousel__link {
-    max-height: 100vh;
-  }
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
 }
-@media screen and (min-width: 1026px) {
-  .carrousel__image {
-    width: 100%;
-  }
+
+.carousel-item img {
+  user-drag: none;
 }
-@media screen and (max-width: 1025px) {
-  .carrousel__image {
-    max-height: 100vw;
-  }
-}
-.carrousel__captions {
+
+.carousel-prev,
+.carousel-next {
   position: absolute;
-  right: 5%;
-  max-width: 40%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-size: 24px;
 }
-@media screen and (max-width: 1025px) {
-  .carrousel__captions {
-    left: 0;
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .carousel img {
     width: 100%;
-    max-width: 100%;
+    height: 500px;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    position: relative;
   }
-}
-@media screen and (max-width: 1025px) {
-  .carrousel__captions.captions-image img {
-    margin: auto;
-  }
-}
-@media screen and (max-width: 767px) {
-  .carrousel__captions.captions-image img {
-    width: 80%;
-  }
-}
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  .carrousel__captions.captions-image img {
-    width: 100vh;
-  }
-}
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .carrousel__captions.captions-image img {
-    width: 100vh;
-  }
-}
-
-.captions-container {
-  padding: 25px;
-  border-radius: 0.5rem;
-}
-@media screen and (max-width: 1025px) {
-  .captions-container {
-    width: 50%;
-    margin: auto;
-  }
-}
-.captions-container__title {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 3em;
-}
-@media screen and (max-width: 1025px) {
-  .captions-container__title {
-    text-align: center;
-  }
-}
-@media screen and (max-width: 767px) {
-  .captions-container__title {
-    font-size: 1.25rem;
-  }
-}
-.captions-container__subtitle {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-@media screen and (max-width: 1025px) {
-  .captions-container__subtitle {
-    text-align: center;
-  }
-}
-@media screen and (max-width: 767px) {
-  .captions-container__subtitle {
-    font-size: 1rem;
-  }
-}
-.captions-container__text {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  font-size: 0.9em;
-  font-weight: 400;
-  padding: 10px 0;
-  line-height: 1.65em;
-}
-@media screen and (max-width: 1025px) {
-  .captions-container__text {
-    text-align: center;
-  }
-}
-
-.slick-arrow {
-  position: absolute;
-  top: calc(50% - 20px);
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-  color: transparent;
-  border: none;
-  z-index: 10;
-}
-
-.slick-prev {
-  left: 20px;
-  background: url("img/icons8-arrow-kiri.png") no-repeat;
-  background-size: contain;
-  filter: invert(100%);
-}
-
-.slick-next {
-  right: 20px;
-  background: url("img/icons8-arrow-kanan.png") no-repeat;
-  background-size: contain;
-  filter: invert(100%);
 }
