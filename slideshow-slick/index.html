@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="flexboxgrid.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      type="text/css"
+    />
   </head>
   <body>
     <div class="carousel-container">
@@ -36,6 +41,65 @@
       <a class="carousel-next" href="#">&#10095;</a>
     </div>
 
+    <div class="share">
+      <ul class="compartilhe">
+        <li class="compartilhe">
+          <a
+            href="https://www.facebook.com/sharer.php?u={url}"
+            title="Facebook"
+            target="_blank"
+            ><i class="fa fa-facebook facebook" aria-hidden="true"></i
+          ></a>
+        </li>
+
+        <li class="compartilhe">
+          <a
+            href="https://twitter.com/intent/tweet?url={url}&text={title}"
+            title="Twitter"
+            target="_blank"
+            ><i class="fa fa-twitter twitter" aria-hidden="true"></i
+          ></a>
+        </li>
+
+        <li class="compartilhe">
+          <a
+            href="https://t.me/share/url?url={url}&text={title}"
+            title="Telegram"
+            target="_blank"
+            ><i
+              class="fa fa-telegram telegram twitter-share-button"
+              aria-hidden="true"
+            ></i
+          ></a>
+        </li>
+
+        <li class="compartilhe">
+          <a
+            href="https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}"
+            title="Linkedin"
+            target="_blank"
+            ><i class="fa fa-linkedin linkedin" aria-hidden="true"></i
+          ></a>
+        </li>
+
+        <li class="compartilhe">
+          <a
+            href="https://api.whatsapp.com/send?&text={url}"
+            title="Whatsapp"
+            target="_blank"
+            ><i class="fa fa-whatsapp whatsapp" aria-hidden="true"></i
+          ></a>
+        </li>
+
+        <li class="compartilhe">
+          <button class="clipboard">
+            <i class="fa fa-solid fa-copy copy" aria-hidden="true"></i>
+          </button>
+        </li>
+        <p></p>
+      </ul>
+    </div>
+    <h1>teststestsetest</h1>
     <script src="js.js"></script>
   </body>
 </html>

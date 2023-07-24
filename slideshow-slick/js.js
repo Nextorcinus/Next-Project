@@ -81,3 +81,67 @@ $(document).ready(function () {
   // Memulai interval otomatis saat halaman dimuat
   startAutoSlide();
 });
+
+function copyToClipboard() {
+  // Mengambil teks URL yang ingin disalin
+  var textToCopy = document.getElementById("urlToCopy").innerText;
+
+  // Membuat elemen sementara untuk menyalin teks ke clipboard
+  var tempInput = document.createElement("input");
+  tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+
+  // Memilih teks di dalam elemen input sementara
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999); // Untuk perangkat seluler
+
+  // Menyalin teks ke clipboard
+  document.execCommand("copy");
+
+  // Menghapus elemen input sementara
+  document.body.removeChild(tempInput);
+
+  alert("URL berhasil disalin ke clipboard: " + textToCopy);
+}
+
+const links = document.querySelectorAll(".share a");
+
+function onClick(event) {
+  event.preventDefault();
+
+  window.open(
+    event.currentTarget.href,
+    "Поделиться",
+    "width=600,height=500,location=no,menubar=no,toolbar=no"
+  );
+}
+
+links.forEach((link) => {
+  const url = encodeURIComponent(
+    window.location.origin + window.location.pathname
+  );
+  const title = encodeURIComponent(document.title);
+
+  link.href = link.href.replace("{url}", url).replace("{title}", title);
+
+  link.addEventListener("click", onClick);
+});
+
+var $temp = $("<input>");
+var $url = $(location).attr("href");
+
+$(".clipboard").on("click", function () {
+  $("body").append($temp);
+  $temp.val($url).select();
+  document.execCommand("copy");
+  $temp.remove();
+
+  // Menampilkan teks "URL copied" dengan opacity 1
+  $("p").text("URL copied!").css("opacity", 1);
+
+  // Menghilangkan teks setelah 3 detik (3000 milidetik)
+  setTimeout(function () {
+    $("p").css("opacity", 0);
+  }, 2000);
+});

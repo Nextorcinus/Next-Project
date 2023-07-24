@@ -3,6 +3,9 @@ body {
   padding: 0;
 }
 
+p {
+  font-family: "Montserrat", sans-serif;
+}
 .carousel-container {
   position: relative;
   overflow: hidden;
@@ -51,4 +54,81 @@ body {
     aspect-ratio: 3 / 4;
     position: relative;
   }
+}
+
+ul {
+  position: relative;
+  display: flex;
+}
+ul li {
+  list-style: none;
+  transition: 1s;
+}
+ul li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #262626;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  margin: 0 4px;
+}
+
+ul li button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #262626;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  margin: 0 4px;
+}
+
+ul li a:hover {
+  box-shadow: 0px 1px 7px 1px #888383;
+  transition: 0s cubic-bezier(0.67, -0.02, 0.58, 1);
+}
+
+ul li button:hover {
+  box-shadow: 0px 1px 7px 1px #888383;
+  transition: 0s cubic-bezier(0.67, -0.02, 0.58, 1);
+}
+
+.facebook,
+.twitter,
+.telegram,
+.linkedin,
+.pinterest,
+.whatsapp,
+.copy {
+}
+
+ul li:nth-child(1) a {
+  background: #3b5999;
+}
+
+ul li:nth-child(2) a {
+  background: #55acee;
+}
+
+ul li:nth-child(3) a {
+  background: #0088cc;
+}
+
+ul li:nth-child(4) a {
+  background: #0077b5;
+}
+
+ul li:nth-child(5) a {
+  background: #e4405f;
+}
+
+ul li:nth-child(6) a {
+  background: #25d366;
 }
