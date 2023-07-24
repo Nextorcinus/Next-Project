@@ -100,14 +100,15 @@ ul li button:hover {
   transition: 0s cubic-bezier(0.67, -0.02, 0.58, 1);
 }
 
-.facebook,
+/* .facebook,
 .twitter,
 .telegram,
 .linkedin,
 .pinterest,
 .whatsapp,
 .copy {
-}
+
+} */
 
 ul li:nth-child(1) a {
   background: #3b5999;
