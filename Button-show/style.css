@@ -1,0 +1,53 @@
+button {
+  background-color: #000;
+  color: #fff;
+  padding-left: 40px;
+  padding-top: 8px;
+  padding-right: 40px;
+  padding-bottom: 8px;
+  font-size: var(--text-size-smaller) !important;
+  font-family: var(--text-font-secondary) !important;
+  font-weight: var(--normal) !important;
+  text-align: var(--text-center) !important;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.kolom {
+  min-width: 600px;
+}
+
+.widget {
+  display: block;
+  position: absolute;
+  transform: translate(0px);
+  opacity: 0;
+  top: 100px;
+  width: 100%;
+  background-color: white;
+}
+
+.be-main .be-box {
+  padding: 0 !important;
+}
+
+body {
+  background-color: red;
+}
+
+.thumbnail {
+  width: 100%;
+}
+
+.widgetactive {
+  opacity: 1 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+#hidebtn {
+  margin-top: 50px;
+}
