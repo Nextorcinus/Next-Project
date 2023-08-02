@@ -1,3 +1,6 @@
+* {
+  padding: 0px !important;
+}
 button {
   background-color: #000;
   color: #fff;
@@ -50,4 +53,18 @@ body {
 
 #hidebtn {
   margin-top: 50px;
+}
+
+.test {
+  padding: 50px;
+  background-color: blue;
+}
+
+img {
+  width: 100%;
+}
+
+.thumbnail {
+  padding-bottom: 300px;
+  padding-top: 0px;
 }

@@ -21,3 +21,32 @@ hideBtn.addEventListener("click", function () {
   // Hapus kelas "nih" dari elemen widget
   widgetEl.classList.remove("widgetactive");
 });
+
+var okb_slideshow_preview = ".lay_598_47";
+var okb_slideshow = ".lay_598_46";
+
+function okb_slideshow_resize() {
+  var target_slideshow = $(okb_slideshow);
+  var target_slideshow_outerHeight = target_slideshow.outerHeight(true);
+  console.log("Slideshow Outer Height:", target_slideshow_outerHeight);
+
+  var target_slideshow_preview = $(okb_slideshow_preview);
+  var target_slideshow_preview_height = target_slideshow_preview.height();
+
+  if (target_slideshow_preview_height < 100) {
+    setTimeout(okb_slideshow_resize, 250);
+  } else {
+    target_slideshow.height(target_slideshow_preview_height);
+    target_slideshow
+      .find("> div.no_global_anim")
+      .height(target_slideshow_preview_height);
+  }
+}
+
+$(document).ready(function () {
+  okb_slideshow_resize();
+});
+
+$(window).on("load resize", function () {
+  okb_slideshow_resize();
+});
