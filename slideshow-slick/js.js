@@ -82,40 +82,48 @@ $(document).ready(function () {
   startAutoSlide();
 });
 
-function copyToClipboard() {
-  // Mengambil teks URL yang ingin disalin
-  var textToCopy = document.getElementById("urlToCopy").innerText;
+// Event Listener Ngambil URL Target
+document.addEventListener("DOMContentLoaded", function () {
+  const compartilheLinks = document.querySelectorAll(".compartilhe a");
+  const clipboardButton = document.querySelector(".clipboard");
+  const messageElement = document.querySelector("p");
 
-  // Membuat elemen sementara untuk menyalin teks ke clipboard
-  var tempInput = document.createElement("input");
-  tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-  tempInput.value = textToCopy;
-  document.body.appendChild(tempInput);
+  // Fungsi untuk menggantikan placeholder dalam atribut href
+  function updateShareLinks() {
+    const currentUrl = encodeURIComponent(window.location.href);
+    const currentTitle = encodeURIComponent(document.title);
 
-  // Memilih teks di dalam elemen input sementara
-  tempInput.select();
-  tempInput.setSelectionRange(0, 99999); // Untuk perangkat seluler
+    compartilheLinks.forEach((link) => {
+      link.href = link.href
+        .replace("{url}", currentUrl)
+        .replace("{title}", currentTitle);
+    });
+  }
 
-  // Menyalin teks ke clipboard
-  document.execCommand("copy");
+  // Event listener untuk tombol copy
+  clipboardButton.addEventListener("click", function () {
+    const tempInput = document.createElement("input");
+    const currentUrl = window.location.href;
 
-  // Menghapus elemen input sementara
-  document.body.removeChild(tempInput);
+    document.body.appendChild(tempInput);
+    tempInput.value = currentUrl;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
 
-  alert("URL berhasil disalin ke clipboard: " + textToCopy);
-}
+    // Menampilkan pesan "URL copied" dengan opacity 1
+    messageElement.textContent = "URL copied!";
+    messageElement.style.opacity = 1;
 
-const links = document.querySelectorAll(".share a");
+    // Menghilangkan pesan setelah 3 detik (3000 milidetik)
+    setTimeout(function () {
+      messageElement.style.opacity = 0;
+    }, 2000);
+  });
 
-function onClick(event) {
-  event.preventDefault();
-
-  window.open(
-    event.currentTarget.href,
-    "Поделиться",
-    "width=600,height=500,location=no,menubar=no,toolbar=no"
-  );
-}
+  // Panggil fungsi untuk menggantikan placeholder saat halaman dimuat
+  updateShareLinks();
+});
 
 links.forEach((link) => {
   const url = encodeURIComponent(
@@ -126,22 +134,4 @@ links.forEach((link) => {
   link.href = link.href.replace("{url}", url).replace("{title}", title);
 
   link.addEventListener("click", onClick);
-});
-
-var $temp = $("<input>");
-var $url = $(location).attr("href");
-
-$(".clipboard").on("click", function () {
-  $("body").append($temp);
-  $temp.val($url).select();
-  document.execCommand("copy");
-  $temp.remove();
-
-  // Menampilkan teks "URL copied" dengan opacity 1
-  $("p").text("URL copied!").css("opacity", 1);
-
-  // Menghilangkan teks setelah 3 detik (3000 milidetik)
-  setTimeout(function () {
-    $("p").css("opacity", 0);
-  }, 2000);
 });
