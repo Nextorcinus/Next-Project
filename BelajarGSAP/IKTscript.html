@@ -1,0 +1,652 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://www.umkm1.v3.ptikt.com/~sjs/gsap3/SplitText.min.js"></script>
+<script src="https://www.umkm1.v3.ptikt.com/~sjs/gsap3/ScrollSmoother.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script src="https://www.umkm1.v3.ptikt.com/~sjs/gsap3/ScrollTrigger.min.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, TweenMax);
+
+  const smoother = ScrollSmoother.create({
+    wrapper: "#design",
+    content: "#content",
+    smooth: 2,
+    speed: 0.5,
+    smoothTouch: false,
+    normalizeScroll: true,
+    ignoreMobileResize: true,
+    effects: true,
+    preventDefault: true,
+  });
+
+  // Section 1
+  ScrollTrigger.create({
+    trigger: ".section1",
+    start: "bottom bottom",
+    end: "+=350%",
+    // end:'bottom top',
+    scrub: 0.3,
+    // markers:{
+    //   startColor: "pink", endColor: "cyan",
+    // },
+    pin: true,
+  });
+
+  // Section1a : Gambar
+  const bn = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section1a",
+      scrub: true,
+      start: "top bottom",
+      end: "top 50%",
+      //  end: "+=300%",
+      // markers: {
+      //   startColor: "pink",
+      //   endColor: "cyan",
+      // },
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: ".section1a",
+    animation: bn,
+    start: "bottom top",
+    end: "top center",
+    // markers: {
+    //   startColor: "grey",
+    //   endColor: "green",
+    // },
+    scrub: 10,
+    sync: true,
+  });
+
+  // Animasi untuk .img1_section1a
+  bn.to(".img1_section1a", {
+    rotation: "-29.584deg",
+    y: "0px",
+
+    scrollTrigger: {
+      trigger: ".section1a",
+
+      scrub: 2,
+      start: "top center",
+      end: "+=150%",
+    },
+  });
+
+  // Animasi untuk .img2_section1a
+  bn.to(".img2_section1a", {
+    rotation: "29.584deg",
+    y: "0px",
+    x: "200px",
+    scrollTrigger: {
+      trigger: ".section1a",
+      scrub: 4,
+      start: "top center",
+      end: "+=150%",
+      stagger: 0.05,
+    },
+  });
+
+  // Section 2 : Slide Text
+  let paraTexts = new SplitText(".slideWrapper p", {
+    type: "words",
+    wordsClass: "para-word",
+  });
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".slideWrapper",
+      pin: true,
+      scrub: true,
+      ease: "power2.inOut",
+      start: "top top",
+      end: "+=" + window.innerWidth,
+      // markers: {
+      //   startColor: "pink",
+      //   endColor: "red",
+      //   indent: 200,
+      // },
+    },
+  });
+
+  tl.to(".slideWrapper", {
+    scrub: 0.3,
+    duration: 100,
+    x: "0%",
+    ease: "sine",
+  });
+  tl.from(paraTexts.words, { opacity: 0.05, stagger: 1 });
+
+  //  Section 3 Title
+  const marquee = document.querySelectorAll(".marquee");
+
+  marquee.forEach((e) => {
+    const carousel = e.querySelectorAll(".marquee-carousel");
+
+    carousel.forEach((e) => {
+      const items = e.querySelector(".marquee-items");
+      const item = e.querySelectorAll(".marquee-item");
+
+      e.classList.add("swiper-container");
+      items.classList.add("swiper-wrapper");
+      item.forEach((e) => e.classList.add("swiper-slide"));
+
+      const slider = new Swiper(e, {
+        slidesPerView: "auto",
+        loop: true,
+        freeMode: true,
+        freeModeMomentumBounce: false,
+        freeModeMomentumVelocityRatio: 0.3,
+      });
+    });
+
+    const tl = gsap.timeline();
+
+    tl.set(carousel, { willChange: "transform" });
+
+    tl.fromTo(
+      carousel[0],
+      {
+        x: -300,
+      },
+      {
+        x: 0,
+        ease: "none",
+      },
+      0
+    );
+
+    tl.fromTo(
+      carousel[1],
+      {
+        x: 300,
+      },
+      {
+        x: 0,
+        ease: "none",
+      },
+      0
+    );
+
+    tl.set(carousel, { willChange: "auto" });
+
+    ScrollTrigger.create({
+      trigger: e,
+      animation: tl,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      refreshPriority: -14,
+      // markers:true
+    });
+  });
+
+  // Section 4 : About
+  let list = document.querySelectorAll(".service_cont");
+  console.log(list);
+
+  list.forEach((element) => {
+    tlMain = new TimelineMax({
+      scrollTrigger: {
+        trigger: ".service_cont",
+        start: "top 70%",
+        end: "bottom bottom",
+        toggleActions: "play none none reverse",
+        // scrub: 1,
+        markers: true,
+      },
+    });
+    tlMain.staggerFromTo(
+      ".service_disp div",
+      0.75,
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, force3D: true, ease: Expo.easeOut },
+      0.15,
+      0
+    );
+  });
+
+  // ==================Title
+  document.addEventListener("DOMContentLoaded", (event) => {
+    function createScrollTrigger(triggerElement, timeline) {
+      ScrollTrigger.create({
+        trigger: triggerElement,
+        start: "top bottom",
+        onLeaveBack: () => {
+          timeline.progress(0);
+          timeline.pause();
+        },
+      });
+
+      ScrollTrigger.create({
+        trigger: triggerElement,
+        start: "top 80%",
+        markers: true,
+        onEnter: () => timeline.play(),
+      });
+    }
+
+    const splitTypeElements = document.querySelectorAll("[text-split]");
+    splitTypeElements.forEach((splitTypeElement) => {
+      const typeSplit = new SplitType(splitTypeElement, {
+        types: "words, chars",
+        tagName: "span",
+      });
+    });
+
+    const wordsRotateInElements = document.querySelectorAll("[titleBig]");
+    wordsRotateInElements.forEach((element) => {
+      const tl = gsap.timeline({ paused: true });
+      const words = element.querySelectorAll(".word");
+      tl.set(words, { transformPerspective: 1000 });
+      tl.from(words, {
+        rotationX: -90,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: { amount: 0.6 },
+      });
+      createScrollTrigger(element, tl);
+    });
+
+    const textSplitElements = document.querySelectorAll("[text-split]");
+    textSplitElements.forEach((element) => {
+      gsap.set(element, { opacity: 1 });
+    });
+  });
+
+  // Section 6 : AWARD
+  const section6 = document.querySelector(".section__6");
+  const awardWrapper = section6.querySelector(".award-wrapper");
+  const al = gsap.timeline({
+    scrollTrigger: {
+      trigger: section6,
+      // scrub: 1,
+      start: "center center",
+      end: "top bottom",
+    },
+  });
+
+  al.to(".award", {
+    y: 50,
+    ease: Expo.easeOut,
+    duration: 1,
+    opacity: 1,
+    stagger: 0.3,
+  });
+
+  // Section 8 : Progress
+  const boxes = document.querySelectorAll(".box");
+
+  boxes.forEach((box, index) => {
+    // Buat timeline animasi untuk setiap box
+    const pl = gsap.timeline({
+      scrollTrigger: {
+        trigger: box,
+        start: "top 40%",
+        end: "bottom bottom",
+        toggleActions: "play none none reverse",
+        once: true,
+      },
+    });
+
+    // Animasikan opacity dari 0 menjadi 1
+    pl.to(box, {
+      x: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+  });
+
+  // testimonial Section 9
+  let testis = gsap.utils.toArray(".testi");
+  const tProgress = document.querySelectorAll(".title__testi");
+
+  testis.pop(); // get rid of the last one (don't need it in the loop)
+  testis.forEach((testi, i) => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: testi,
+        start: "bottom bottom",
+        pinSpacing: false,
+        pin: true,
+        scrub: true,
+        // set the transformOrigin so that it's in the center vertically of the viewport when the element's bottom hits the bottom of the viewport
+        onRefresh: () =>
+          gsap.set(testi, {
+            transformOrigin:
+              "center " + (testi.offsetHeight - window.innerHeight / 2) + "px",
+          }),
+      },
+    });
+
+    tl.fromTo(
+      testi,
+      1,
+      { y: 0, rotate: 0, scale: 1, opacity: 1 },
+      { y: 0, rotateX: 0, scale: 0.5, opacity: 0.5 },
+      0
+    ).to(testi, 0.1, { opacity: 0 });
+  });
+
+  //Section 11 : Case Studies
+  document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    const gsapItem = gsap.utils.toArray(".reveal__img-item");
+
+    gsapItem.forEach((gsIt, i) => {
+      const imgText = gsIt.querySelector(".reveal__img-title");
+      const imgInner = gsIt.querySelector(".reveal__img-inner");
+      const imgBl = gsIt.querySelector(".reveal__img-bl");
+      const imgImg = gsIt.querySelector(".reveal__img-img");
+
+      let nd = gsap.timeline({
+        scrollTrigger: {
+          trigger: gsIt,
+          start: "top 70%",
+          toggleActions: "play none none none",
+          // markers: true,
+        },
+      });
+
+      nd.to(imgText, 1, {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 1,
+        stagger: 0.5,
+      });
+      nd.to(
+        imgInner,
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "expo.out",
+          duration: 0.5,
+        },
+        "-=1"
+      );
+      nd.to(
+        imgBl,
+        1.5,
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "expo.out",
+          duration: 0.5,
+        },
+        "-=0.5"
+      ).eventCallback("onComplete", function () {
+        console.log("Animasi selesai");
+      });
+    });
+  });
+</script>
+
+<style>
+  /* marquee */
+
+  .marquee {
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+    padding: 200px 0;
+  }
+
+  .marquee-content {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    display: -webkit-box;
+    align-items: center;
+    padding: 33vh 0;
+    text-align: center;
+  }
+
+  .marquee-carousel.marquee-carousel-1 {
+    margin-right: -300px;
+    margin-bottom: 11px;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-carousel.marquee-carousel-1 {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .marquee-carousel.marquee-carousel-1 {
+      margin-bottom: 23px;
+    }
+  }
+
+  .marquee-carousel.marquee-carousel-2 {
+    margin-left: -300px;
+  }
+
+  .marquee-items {
+    -webkit-transition-timing-function: cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ) !important;
+    -moz-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+    -o-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: -webkit-box;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-items {
+      height: 250px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .marquee-items {
+      height: 300px;
+    }
+  }
+
+  .marquee-item {
+    width: 300px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    /* -webkit-border-radius: 16px;
+  -moz-border-radius: 16px; */
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-right: 11px;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-item {
+      width: 250px;
+      margin-right: 16px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .marquee-item {
+      width: 479px;
+      margin-right: 23px;
+    }
+  }
+
+  .marquee-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media only screen and (max-width: 64em) {
+    .box {
+      border-radius: 10px !important;
+    }
+    .box::before {
+      border-radius: 10px !important;
+    }
+  }
+
+  /* style css section6 : Award */
+  .section__6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .award {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  /* style css section8 : progress */
+  .box {
+    border-radius: 9999px;
+    border: 2px solid #afafaf; /* Warna border default (merah) */
+    position: relative; /* Tambahkan ini untuk mengatur posisi pseudo-element */
+    transition-property: color, border-color, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    overflow: hidden; /* Tambahkan ini untuk memastikan clip path tetap tersembunyi saat tidak di-hover */
+  }
+
+  .box::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    transition: clip-path 0.4s, border-color 0.4s; /* Tambahkan perubahan border-color */
+    pointer-events: none; /* Ini akan mencegah pseudo-elements dari mengganggu interaksi dengan elemen utama */
+    border: 2px solid transparent; /* Gunakan border untuk mengatur ketebalan border */
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+  }
+
+  .box::before {
+    background-color: transparent; /* Warna latar belakang tetap transparan */
+    clip-path: inset(0 50% 0 50%); /* Clip path awal dari tengah ke samping */
+    border-color: transparent; /* Warna border default (tidak terlihat) */
+    border-right: 2px solid transparent; /* Hilangkan border di sisi kanan */
+    border-bottom: 2px solid transparent; /* Hilangkan border di sisi bawah */
+  }
+
+  .box:hover::before {
+    clip-path: inset(
+      0 0 0 0
+    ); /* Clip path saat hover (dari tengah ke semua sisi) */
+    border-color: yellow; /* Warna border saat hover (kuning) */
+  }
+
+  .box:hover {
+    border-color: transparent;
+    opacity: 1;
+  }
+
+  /* style css section9 : testimonial */
+  .section__9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
+
+  .testi {
+    width: 90%;
+    min-height: calc(60vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  /* style css section11 : Case Studies */
+  .reveal__img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 150px;
+    width: 100%;
+    height: auto;
+    padding-bottom: 170px;
+  }
+
+  .reveal__img-item {
+    position: relative;
+    width: calc(50% - (150px / 2));
+    padding-left: 53px;
+  }
+
+  .reveal__img-title {
+    opacity: 0;
+    transform: translateX(-90);
+  }
+
+  .reveal__img-item:nth-child(even) {
+    transform: translateY(150px);
+  }
+
+  .reveal__img-inner,
+  .reveal__img-bl {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  }
+
+  .reveal__img-inner {
+    background: var(--black);
+  }
+
+  .reveal__img-bl {
+    overflow: hidden;
+  }
+
+  .reveal__img-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+  }
+
+  h2 {
+    position: relative;
+    overflow: hidden;
+  }
+
+  h2 span {
+    display: inline-block;
+    transform: translateY(100%);
+    line-height: 1;
+  }
+
+  .lineParent {
+    overflow: hidden;
+    max-width: max-content;
+  }
+
+  .mask {
+    overflow: hidden;
+  }
+
+  #mask {
+    overflow: hidden;
+  }
+</style>
