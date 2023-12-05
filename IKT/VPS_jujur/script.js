@@ -107,17 +107,64 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
 var tlSection1 = gsap.timeline({});
-tlSection1.from(".titleH1", { scale:0, duration: 0.4,})
+tlSection1.from(".titleH1", { scale:0, duration: 1,stagger: 0.4,})
 .to(".titleH1", {opacity:1, duration: 0.7,stagger: 0.25,})
 .addLabel("hold1")
 .to(".titleH1", {opacity:0, duration: 0.25})
 .to(".first, .second, .three", { height: 0, duration: 0.6, stagger: 0.2, ease: "power1.in" })
 .addLabel("hold2")
-.from(".vps1 .publicsans", {scale:0, opacity:0, duration: 0.5, stagger: 0.2, ease: "bounce.out" })
-.from(".vps1 .nunito", {y:100, opacity:0, duration: 0.5, stagger: 0.2, ease: "power4.out" })
+.from(".vps1 .publicsans", {scale:0, opacity:0, duration: 0.5, stagger: 0.5, ease: "power1.in" })
+.from(".vps1 .nunito", {y:100, opacity:0, duration: 0.5,  ease: "power4.in" })
+
+const tlSection2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".vps2",
+    start: "top 80%",
+    end: "center center",
+    scrub: true,
+    markers:true    
+  }
+});
+
+
+tlSection2.to(".imgVPS", {opacity:1, y:-250, duration:0.5})
+.to(".textVPS", {y:-200, duration:0.5, stagger: 0.5,})
+.to(".tagVPS", {scale:1, opacity:1, ease:"bounce", duration:1, stagger: 0.4,})
+
+
+//========================== FITUR
+
+    const title = document.querySelector(".lay_345d_102");
+    const titleFitur = document.querySelector(".containerFitur");
+
+    tlTitle = new TimelineMax({ 
+          scrollTrigger: {
+                trigger: titleFitur, 
+                start: "top 70%", 
+                end: "top 20%",          
+                scrub: 1,                
+              }
+          });
+
+    tlTitle.set(title, {opacity:0, y:100});
+    tlTitle.to(title, {opacity:1, y:0, duration:1})
 
 
 
+    const listWrapperEl = document.querySelector(".side-scroll-list-wrapper");
+    const listEl = document.querySelector(".side-scroll-list");
 
-  
+    gsap.to(listEl, {
+      x: () => -(listEl.clientWidth - listWrapperEl.clientWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".side-scroll",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true
+      }
+    });  
 </script>
