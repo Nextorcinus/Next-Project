@@ -1,43 +1,68 @@
 console.clear();
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-let panels = gsap.utils.toArray(".container .panel");
+const smoother = ScrollSmoother.create({
+  wrapper: "#design",
+  content: "#content",
+  smooth: true,
+  speed: 0,
+  smoothTouch: true,
+  normalizeScroll: true,
+  ignoreMobileResize: true,
+  effects: true,
+  preventDefault: true,
+});
 
-let panelTween = gsap.to(panels, {
-  xPercent: -100 * (panels.length - 1),
-  ease: "none",
+const section1 = document.querySelector(".section1");
+const section3 = document.querySelector(".section3");
+
+// Animasi "section1" berubah warna ketika mencapai "section2"
+gsap.to(".section1, .text", {
   scrollTrigger: {
-    trigger: ".container",
+    trigger: ".section2",
+    start: "center 90%",
+    end: "bottom -=200",
+    toggleActions: "play reverse play reverse",
+  },
+  backgroundColor: "#F0FF3D",
+  color: "#000",
+});
+
+// Pin "section1" sampai mencapai "section3"
+ScrollTrigger.create({
+  trigger: ".section1",
+  start: "top top",
+  endTrigger: ".section3",
+  end: "bottom top",
+  pin: true,
+  pinSpacing: false,
+});
+
+let paraTexts = new SplitText(".text2", {
+  type: "words",
+  wordsClass: "para-word",
+});
+
+let pl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section3",
+    pin: ".section3",
+    scrub: true,
+    ease: "power2.inOut",
     start: "top top",
-    end: () => "+=" + (panels.length - 1) * window.innerWidth,
+    end: "+=" + window.innerWidth,
     markers: {
-      startColor: "purple",
-      endColor: "fuchsia",
-      fontSize: "3rem",
+      startColor: "pink",
+      endColor: "red",
+      indent: 200,
     },
-    pin: true,
-    scrub: 2,
   },
 });
 
-const split = new SplitText(".wrapper span", {
-  type: "chars",
-  charsClass: "char",
+pl.to(".section3", {
+  duration: 100,
+  x: "0%",
+  ease: "sine",
 });
 
-const tl = gsap
-  .timeline({
-    scrollTrigger: {
-      trigger: "#textSection", // Ganti dengan ID yang sesuai
-      start: "20% top",
-      end: "bottom center",
-      pin: true,
-      scrub: 0.75,
-      markers: true,
-    },
-  })
-  .from(".char", {
-    opacity: 0,
-    y: 50,
-    stagger: 0.1,
-  });
+pl.from(paraTexts.words, { opacity: 0.05, stagger: 1 });
