@@ -23,6 +23,207 @@
       <div class="carousel-cell"></div>
     </div>
 
+    <div class="widget_div row container">
+      <div class="col-md-12 col-xs-12 row">
+        <div class="form-group col-md-3 col-xs-12">
+          <div class="inner-addon right-addon">
+            <lable>CHECK IN </lable>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="CHECK IN"
+              id="Check-in"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="form-group col-md-3 col-xs-12">
+          <div class="inner-addon right-addon">
+            <lable>CHECK OUT </lable>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="CHECK OUT"
+              id="Check-out"
+              readonly="readonly"
+            />
+          </div>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <div class="inner-addon right-addon">
+            <lable>PROMO CODE </lable>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="PROMO CODE"
+              id="promo"
+            />
+          </div>
+        </div>
+        <div class="form-group buttoncheck col-md-2 col-xs-12">
+          <span class="button-checkbox">
+            <input id="flexi" type="checkbox" />
+            <label for="flexi" style="display: inline-block"
+              >FLEXIBLE DATES</label
+            >
+          </span>
+        </div>
+        <div class="book_btn col-md-2 col-xs-12">
+          <button class="btn btn-book" type="submit" onClick="booknow1();">
+            BOOK NOW
+          </button>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12"> <a class="btn btn-danger btn-call"><i class="fa fa-phone"></i>'.$phone.'</a> </div>-->
+      </div>
+    </div>
+    <script type="text/javascript">
+      var tmp = "";
+      jQuery(function () {
+        var defaultdate = new Date();
+        jQuery.datepicker.setDefaults({
+          closeText: "Close",
+          currentText: "Today",
+          monthNames: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ],
+          monthNamesShort: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          nextText: "Next",
+          prevText: "Previous",
+          dayNames: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          dayNamesMin: ["S", "M", "T", "W", "T", "F", "S"],
+          firstDay: 1,
+          isRTL: false,
+          defaultDate: "defaultdate",
+          minDate: 0,
+          maxDate: "+3Y",
+        });
+        jQuery("#Check-in").datepicker({
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function (selectedDate) {
+            cSelDate = jQuery("#Check-in").datepicker("getDate");
+            if (cSelDate) {
+              cSelDate.setDate(cSelDate.getDate() + 1);
+              jQuery("#Check-out").datepicker("option", "minDate", cSelDate);
+              jQuery("#Check-out").focus();
+            }
+          },
+          dateFormat: "d M yy",
+          buttonImage: "",
+          buttonImageOnly: true,
+        });
+        jQuery("#Check-out").datepicker({
+          changeMonth: true,
+          numberOfMonths: 1,
+          dateFormat: "d M yy",
+          buttonImage: "",
+          buttonImageOnly: true,
+        });
+        var todaysDate = new Date();
+        jQuery("#Check-in").datepicker("setDate", todaysDate);
+        var tomorrow = new Date();
+        tomorrow.setDate(todaysDate.getDate() + 1);
+        jQuery("#Check-out").datepicker("setDate", tomorrow);
+      });
+
+      function changeFormat(keydate) {
+        var dateObject = new Date(keydate);
+        var formatedate = dateObject.getFullYear() + "-";
+        formatedate +=
+          dateObject.getMonth() < 9
+            ? "0" + (dateObject.getMonth() + 1) + "-"
+            : dateObject.getMonth() + 1 + "-";
+        formatedate +=
+          dateObject.getDate() < 9
+            ? "0" + dateObject.getDate()
+            : dateObject.getDate();
+        return formatedate;
+      }
+
+      function booknow1() {
+        var checkindate = jQuery("#Check-in").val();
+        var checkoutdate = jQuery("#Check-out").val();
+        var promocode =
+          jQuery("#promo").val() != "undefined" ? jQuery("#promo").val() : "";
+        var nguest = jQuery("#nguest").val();
+
+        var chkin = changeFormat(checkindate);
+        var chkout = changeFormat(checkoutdate);
+
+        var startDay = new Date(checkindate);
+        var endDay = new Date(checkoutdate);
+
+        var millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+        var millisBetween = endDay.getTime() - startDay.getTime();
+        var days = millisBetween / millisecondsPerDay;
+
+        if (checkindate == "") {
+          alert("Select check-in date");
+          return false;
+        } else if (checkoutdate == "") {
+          alert("Select check-out date");
+          return false;
+        } else {
+          if (document.getElementById("flexi").checked) {
+            window.open(
+              "https://staahmax.staah.net/be/index_be?propertyId=MzE1OA==&display=flexiR&individual=true&checkIn=" +
+                chkin +
+                "&checkOut=" +
+                chkout +
+                "&promoCode=" +
+                promocode,
+              "_blank"
+            );
+          } else {
+            window.open(
+              "https://staahmax.staah.net/be/indexpackdetail?propertyId=MzE1OA==&display=flexiR&individual=true&checkIn=" +
+                checkindate +
+                "&checkOut=" +
+                checkoutdate +
+                "&promoCode=" +
+                promocode,
+              "_blank"
+            );
+          }
+        }
+      }
+    </script>
+
     <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
     <script src="script.js"></script>
   </body>
